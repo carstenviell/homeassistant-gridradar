@@ -45,7 +45,7 @@ async def _validate_token(token: str) -> str | None:
     async with aiohttp.ClientSession() as session:
         try:
             async with session.get(
-                f"{API_BASE_URL}/",
+                f"{API_BASE_URL}/attrib",
                 headers={"Authorization": f"Bearer {token}"},
                 timeout=aiohttp.ClientTimeout(total=10),
             ) as response:

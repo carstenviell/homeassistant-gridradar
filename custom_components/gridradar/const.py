@@ -3,7 +3,7 @@
 DOMAIN = "gridradar"
 DEFAULT_SCAN_INTERVAL = 60  # Sekunden
 
-API_BASE_URL = "https://service.gridradar.net/api"
+API_BASE_URL = "https://api.gridradar.net"
 
 # Verfügbare Metriken
 METRICS = {

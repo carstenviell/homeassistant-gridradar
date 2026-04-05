@@ -51,8 +51,6 @@ class GridradarCoordinator(DataUpdateCoordinator):
                 url = f"{API_BASE_URL}/query"
                 params = {
                     "metric": metric_key,
-                    "aggr": "1m",
-                    "func": "last",
                     "format": "json",
                     "ts": "rfc3339",
                 }
