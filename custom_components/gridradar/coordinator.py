@@ -1,6 +1,7 @@
 """DataUpdateCoordinator für Gridradar."""
 from __future__ import annotations
 
+import json
 import logging
 from datetime import timedelta
 
@@ -54,7 +55,6 @@ class GridradarCoordinator(DataUpdateCoordinator):
                     "func": "last",
                     "format": "json",
                     "ts": "rfc3339",
-                    "rt": "60",
                 }
                 headers = {"Authorization": f"Bearer {self.api_token}"}
 
@@ -76,7 +76,19 @@ class GridradarCoordinator(DataUpdateCoordinator):
                                 f"Fehler beim Abrufen von {metric_key}: HTTP {response.status}"
                             )
 
-                        data = await response.json(content_type=None)
+                        raw = await response.text()
+                        if not raw or not raw.strip():
+                            _LOGGER.debug("Leere Antwort für Metrik %s", metric_key)
+                            results[metric_id] = self.data.get(metric_id) if self.data else None
+                            continue
+
+                        try:
+                            data = json.loads(raw)
+                        except json.JSONDecodeError as err:
+                            _LOGGER.warning("Ungültiges JSON für %s: %s", metric_key, err)
+                            results[metric_id] = self.data.get(metric_id) if self.data else None
+                            continue
+
                         value = self._extract_latest_value(data)
                         results[metric_id] = value
 
