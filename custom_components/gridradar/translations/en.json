@@ -1,0 +1,33 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up Gridradar",
+        "description": "Enter your Gridradar API token. Get a free token at https://service.gridradar.net",
+        "data": {
+          "api_token": "API Token",
+          "metrics": "Metrics (select)",
+          "scan_interval": "Update interval (seconds)"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Invalid API token. Please check your credentials.",
+      "cannot_connect": "Failed to connect to Gridradar. Please check your internet connection."
+    },
+    "abort": {
+      "already_configured": "Gridradar is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Gridradar options",
+        "data": {
+          "metrics": "Metrics (select)",
+          "scan_interval": "Update interval (seconds)"
+        }
+      }
+    }
+  }
+}

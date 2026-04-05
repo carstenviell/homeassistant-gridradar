@@ -1,0 +1,11 @@
+{
+  "domain": "gridradar",
+  "name": "Gridradar",
+  "version": "1.0.0",
+  "config_flow": true,
+  "documentation": "https://service.gridradar.net/index.php?menu=doc",
+  "issue_tracker": "",
+  "requirements": [],
+  "codeowners": [],
+  "iot_class": "cloud_polling"
+}
