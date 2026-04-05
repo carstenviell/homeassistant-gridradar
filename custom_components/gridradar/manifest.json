@@ -1,7 +1,7 @@
 {
   "domain": "gridradar",
   "name": "Gridradar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "config_flow": true,
   "documentation": "https://service.gridradar.net/index.php?menu=doc",
   "issue_tracker": "",
